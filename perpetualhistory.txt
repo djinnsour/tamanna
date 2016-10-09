@@ -1,0 +1,11 @@
+https://twitter.com/michaelhoffman/status/639178145673932800
+ Replaces ~/.bash_history with ~/.history/<year>/<month>/<session>
+
+
+Add the following lines to your $HOME/.bashrc:
+
+	HOSTNAME="$(hostname)" HOSTNAME_SHORT="${HOSTNAME%%.*}"
+	mkdir -p ${HOME}/.history/$(date -u +%Y/%m)
+	HISTSIZE=""
+	HISTFILESIZE=""
+	HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
